@@ -31,6 +31,7 @@ class Usuario {
       required this.onlineRepartidor,
       required this.transito,
       required this.recargas,
+      required this.hibrido,
       required this.cesta});
   bool online;
   List<dynamic> direcciones;
@@ -56,6 +57,7 @@ class Usuario {
   bool transito;
   bool onlineRepartidor;
   List<Recarga> recargas;
+  bool hibrido;
 
   factory Usuario.fromJson(Map<String, dynamic> json) {
     return Usuario(
@@ -80,12 +82,11 @@ class Usuario {
         codigo: json['codigo'] ?? '',
         nombreCodigo: json['nombreCodigo'] ?? "",
         idCodigo: json['idCodigo'] ?? "",
-        negocios:
-            List<Tienda>.from(json["negocios"].map((x) => Tienda.fromJson(x))),
+        negocios: [],
         recargas: json['recargas'] != null
             ? List<Recarga>.from(
                 json["recargas"].map((x) => Recarga.fromJson(x)))
-            : []);
+            : [], hibrido: false);
   }
 }
 

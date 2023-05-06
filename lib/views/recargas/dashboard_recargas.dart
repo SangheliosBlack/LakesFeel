@@ -35,21 +35,22 @@ class _DashBoardRecargasViewState extends State<DashBoardRecargasView> {
         actions: [
           GestureDetector(
             onTap: () async {
-              var res = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SimpleBarcodeScannerPage(
-                        centerTitle: true,
-                        appBarTitle: '♥9cLIENTE',
-                        cancelButtonText: 'Cancelar',
-                        lineColor: '#F41B5B',
-                        scanType: ScanType.qr,
-                        isShowFlashIcon: false),
-                  ));
+              print('na');
+              // var res = await Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //       builder: (context) => const SimpleBarcodeScannerPage(
+              //           centerTitle: true,
+              //           appBarTitle: '♥9cLIENTE',
+              //           cancelButtonText: 'Cancelar',
+              //           lineColor: '#F41B5B',
+              //           scanType: ScanType.qr,
+              //           isShowFlashIcon: false),
+              //     ));
               setState(() {
-                if (res is String && res != '-1') {
-                  user = res;
-                }
+                // if (res is String && res != '-1') {
+                user = 'sasas';
+                // }
               });
             },
             child: Container(
