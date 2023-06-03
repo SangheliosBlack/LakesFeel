@@ -10,7 +10,6 @@ class ConfiguracionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<AuthService>(context);
-    final nombre = authProvider.usuario.nombre.split(' ');
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -21,7 +20,7 @@ class ConfiguracionView extends StatelessWidget {
         backgroundColor: Colors.black,
       ),
       backgroundColor: const Color.fromRGBO(108, 2, 93, 1),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -140,9 +139,7 @@ class ConfiguracionView extends StatelessWidget {
                                   color: Colors.grey, fontSize: 11),
                             ),
                             Text(
-                              authProvider.usuario.dialCode +
-                                  ' ' +
-                                  authProvider.usuario.numeroCelular,
+                              '${authProvider.usuario.dialCode} ${authProvider.usuario.numeroCelular}',
                               style: GoogleFonts.quicksand(
                                   color: Colors.white, fontSize: 18),
                             )

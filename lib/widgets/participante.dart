@@ -45,7 +45,7 @@ class Participante extends StatelessWidget {
                               image: AssetImage(artista.imgUrl),
                               fit: BoxFit.cover,
                             )
-                          : Icon(
+                          : const Icon(
                               Icons.image_not_supported,
                               color: Colors.white,
                             )),

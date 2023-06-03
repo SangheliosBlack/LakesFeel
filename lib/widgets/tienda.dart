@@ -1,8 +1,9 @@
 import 'package:cashless/models/tienda.dart';
+import 'package:cashless/services/auth_service.dart';
 import 'package:cashless/views/venta/ver_tienda.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class TiendaWidget extends StatelessWidget {
   final Tienda tienda;
@@ -10,20 +11,37 @@ class TiendaWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => VerTienda(
-                    tienda: tienda,
-                  )),
-        );
-      },
-      child: Column(
-        children: [
-          Container(
-            child: SizedBox(
+    final authProvider = Provider.of<AuthService>(context);
+    return AnimatedOpacity(
+      opacity: authProvider.tiendaActiva == ''
+          ? 1
+          : authProvider.tiendaActiva == tienda.nombre
+              ? 1
+              : .2,
+      duration: const Duration(milliseconds: 600),
+      child: GestureDetector(
+        onTap: () {
+          authProvider.tiendaActiva == ''
+              ? Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => VerTienda(
+                            tienda: tienda,
+                          )),
+                )
+              : authProvider.tiendaActiva == tienda.nombre
+                  ? Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => VerTienda(
+                                tienda: tienda,
+                              )),
+                    )
+                  : null;
+        },
+        child: Column(
+          children: [
+            SizedBox(
               height: 80,
               width: 80,
               child: Container(
@@ -47,7 +65,8 @@ class TiendaWidget extends StatelessWidget {
                               fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(15)),
                       child: tienda.nombre == 'Lakes Feel'
-                          ? const Image(image: AssetImage('assets/images/logo3.png'))
+                          ? const Image(
+                              image: AssetImage('assets/images/logo3.png'))
                           : tienda.nombre == 'Gula La'
                               ? Container(
                                   padding: const EdgeInsets.all(10),
@@ -61,19 +80,20 @@ class TiendaWidget extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          const SizedBox(height: 5),
-          Container(
-            width: 80,
-            child: Center(
-              child: Text(
-                tienda.nombre,
-                overflow: TextOverflow.ellipsis,
-                style: GoogleFonts.quicksand(color: Colors.white, fontSize: 12),
+            const SizedBox(height: 5),
+            SizedBox(
+              width: 80,
+              child: Center(
+                child: Text(
+                  tienda.nombre,
+                  overflow: TextOverflow.ellipsis,
+                  style:
+                      GoogleFonts.quicksand(color: Colors.white, fontSize: 12),
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

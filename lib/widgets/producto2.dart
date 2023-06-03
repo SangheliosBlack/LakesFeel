@@ -1,7 +1,6 @@
 import 'package:cashless/models/producto.dart';
 import 'package:cashless/services/auth_service.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -75,7 +74,7 @@ class ProductoWidget2 extends StatelessWidget {
                             index: index);
                       },
                 child: Container(
-                  padding: EdgeInsets.all(5),
+                  padding: const EdgeInsets.all(5),
                   margin: const EdgeInsets.only(left: 20),
                   decoration: BoxDecoration(
                       color: const Color.fromRGBO(244, 27, 91, 1),
@@ -101,7 +100,7 @@ class ProductoWidget2 extends StatelessWidget {
                     index: index);
               },
               child: Container(
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     color: const Color.fromRGBO(244, 27, 91, 1),
                     borderRadius: BorderRadius.circular(30)),

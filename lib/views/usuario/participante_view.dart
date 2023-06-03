@@ -297,7 +297,7 @@ class _ParticipanteViewState extends State<ParticipanteView> {
                                                 ),
                                                 fit: BoxFit.cover,
                                               )
-                                            : Icon(
+                                            : const Icon(
                                                 Icons.image_not_supported,
                                                 color: Colors.white,
                                               )),
@@ -319,8 +319,8 @@ class _ParticipanteViewState extends State<ParticipanteView> {
                                             padding: const EdgeInsets.symmetric(
                                                 horizontal: 16, vertical: 5),
                                             decoration: BoxDecoration(
-                                                boxShadow: [
-                                                  const BoxShadow(
+                                                boxShadow: const [
+                                                   BoxShadow(
                                                     offset: Offset(0, 0),
                                                     spreadRadius: -3,
                                                     blurRadius: 5,
@@ -335,6 +335,7 @@ class _ParticipanteViewState extends State<ParticipanteView> {
                                             child: Text(
                                               'DJ',
                                               style: GoogleFonts.quicksand(
+                                                  fontSize: 11,
                                                   color: Colors.white),
                                             ),
                                           ),
@@ -562,17 +563,5 @@ class _ParticipanteViewState extends State<ParticipanteView> {
     }
   }
 
-  String k_m_b_generator(num) {
-    if (num > 999 && num < 99999) {
-      return "${(num / 1000).toStringAsFixed(1)} K";
-    } else if (num > 99999 && num < 999999) {
-      return "${(num / 1000).toStringAsFixed(0)} K";
-    } else if (num > 999999 && num < 999999999) {
-      return "${(num / 1000000).toStringAsFixed(1)} M";
-    } else if (num > 999999999) {
-      return "${(num / 1000000000).toStringAsFixed(1)} B";
-    } else {
-      return num.toString();
-    }
-  }
+  
 }

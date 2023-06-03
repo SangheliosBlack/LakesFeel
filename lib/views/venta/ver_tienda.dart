@@ -10,6 +10,7 @@ class VerTienda extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       backgroundColor: const Color.fromRGBO(108, 2, 93, 1),
       body: Column(
@@ -26,12 +27,12 @@ class VerTienda extends StatelessWidget {
                       onTap: () {
                         Navigator.pop(context);
                       },
-                      child: Icon(
+                      child: const Icon(
                         Icons.arrow_back,
                         color: Colors.white,
                       ),
                     ),
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
                     Text(
                       tienda.nombre,
                       style: GoogleFonts.quicksand(

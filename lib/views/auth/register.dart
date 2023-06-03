@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
+
 import 'package:cashless/models/error.dart';
 import 'package:cashless/provider/register_form_provider.dart';
 import 'package:cashless/services/auth_service.dart';
@@ -6,7 +8,6 @@ import 'package:cashless/views/extras/terminos_condiciones.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
 
 class RegisterView extends StatefulWidget {
   final String numero;
@@ -53,16 +54,16 @@ class _RegisterViewState extends State<RegisterView> {
                       Container(
                         margin: const EdgeInsets.only(bottom: 0, top: 40),
                         child: Text(
-                          'Registrame',
+                          'Registro',
                           style: GoogleFonts.quicksand(
-                              fontSize: 40, color: Colors.white),
+                              fontSize: 37, color: Colors.white),
                         ),
                       ),
                       const SizedBox(
                         height: 0,
                       ),
                       Text('Primera vez aqui?',
-                          style: GoogleFonts.quicksand(color: Colors.grey)),
+                          style: GoogleFonts.quicksand(color: Colors.white)),
                       const SizedBox(
                         height: 25,
                       ),
@@ -97,8 +98,8 @@ class _RegisterViewState extends State<RegisterView> {
                                   },*/
                                   obscureText: false,
                                   keyboardType: TextInputType.emailAddress,
-                                  style:
-                                      GoogleFonts.quicksand(color: Colors.white),
+                                  style: GoogleFonts.quicksand(
+                                      color: Colors.white),
                                   decoration: InputDecoration(
                                       hintStyle: GoogleFonts.quicksand(
                                           color: Colors.white),
@@ -117,7 +118,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       errorStyle: GoogleFonts.quicksand(
-                                          color: Colors.red,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w600),
                                       contentPadding: const EdgeInsets.only(
                                           left: 25, top: 10, bottom: 10),
@@ -143,8 +144,7 @@ class _RegisterViewState extends State<RegisterView> {
                                           FloatingLabelAlignment.start,
                                       hintText: 'tucorreo@tucorre.com',
                                       labelStyle: GoogleFonts.quicksand(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w600),
+                                          color: Colors.black, fontSize: 15),
                                       labelText: 'CORREO ELECTRONICO'),
                                 ),
                               ),
@@ -171,8 +171,8 @@ class _RegisterViewState extends State<RegisterView> {
                                   },*/
                                   obscureText: registerFormProvider.obscureText,
                                   keyboardType: TextInputType.emailAddress,
-                                  style:
-                                      GoogleFonts.quicksand(color: Colors.white),
+                                  style: GoogleFonts.quicksand(
+                                      color: Colors.white),
                                   decoration: InputDecoration(
                                       errorText: registerFormProvider
                                               .passwordError.isEmpty
@@ -189,7 +189,7 @@ class _RegisterViewState extends State<RegisterView> {
                                                 ? Icons.visibility
                                                 : Icons.visibility_off,
                                             color:
-                                                Color.fromRGBO(244, 27, 91, 1),
+                                                const Color.fromRGBO(244, 27, 91, 1),
                                           )),
                                       errorBorder: UnderlineInputBorder(
                                           borderSide: const BorderSide(
@@ -202,7 +202,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       errorStyle: GoogleFonts.quicksand(
-                                          color: Colors.red,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w600),
                                       contentPadding: const EdgeInsets.only(
                                           left: 25, top: 10, bottom: 10),
@@ -230,8 +230,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         size: 20,
                                       ),
                                       labelStyle: GoogleFonts.quicksand(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w600),
+                                          color: Colors.black, fontSize: 15),
                                       labelText: 'CONTRASEÑA'),
                                 ),
                               ),
@@ -260,8 +259,8 @@ class _RegisterViewState extends State<RegisterView> {
                                   },*/
                                   obscureText: true,
                                   keyboardType: TextInputType.emailAddress,
-                                  style:
-                                      GoogleFonts.quicksand(color: Colors.white),
+                                  style: GoogleFonts.quicksand(
+                                      color: Colors.white),
                                   decoration: InputDecoration(
                                       errorText: registerFormProvider
                                               .confirmPasswordError.isEmpty
@@ -279,7 +278,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       errorStyle: GoogleFonts.quicksand(
-                                          color: Colors.red,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w600),
                                       contentPadding: const EdgeInsets.only(
                                           left: 25, top: 10, bottom: 10),
@@ -307,8 +306,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         size: 20,
                                       ),
                                       labelStyle: GoogleFonts.quicksand(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w600),
+                                          color: Colors.black, fontSize: 15),
                                       labelText: 'CONFIRMAR CONTRASEÑA'),
                                 ),
                               ),
@@ -335,8 +333,8 @@ class _RegisterViewState extends State<RegisterView> {
                                   },*/
                                   obscureText: false,
                                   keyboardType: TextInputType.emailAddress,
-                                  style:
-                                      GoogleFonts.quicksand(color: Colors.white),
+                                  style: GoogleFonts.quicksand(
+                                      color: Colors.white),
                                   decoration: InputDecoration(
                                       errorText:
                                           registerFormProvider.nameError.isEmpty
@@ -353,7 +351,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         borderRadius: BorderRadius.circular(20),
                                       ),
                                       errorStyle: GoogleFonts.quicksand(
-                                          color: Colors.red,
+                                          color: Colors.white,
                                           fontWeight: FontWeight.w600),
                                       contentPadding: const EdgeInsets.only(
                                           left: 25, top: 10, bottom: 10),
@@ -381,9 +379,8 @@ class _RegisterViewState extends State<RegisterView> {
                                           FloatingLabelAlignment.start,
                                       hintText: 'Nombre completo',
                                       labelStyle: GoogleFonts.quicksand(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w600),
-                                      labelText: 'Nombre'),
+                                          color: Colors.black, fontSize: 15),
+                                      labelText: 'NOMBRE'),
                                 ),
                               ),
                               const SizedBox(
@@ -414,7 +411,7 @@ class _RegisterViewState extends State<RegisterView> {
                                             text: '"Registrarme"',
                                             style: GoogleFonts.quicksand(
                                                 fontWeight: FontWeight.bold,
-                                                color: Color.fromRGBO(
+                                                color: const Color.fromRGBO(
                                                     250, 180, 4, 1))),
                                         const TextSpan(
                                             text:
@@ -436,7 +433,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 decoration: BoxDecoration(
                                     border: Border.all(
                                         width: 1,
-                                        color: Color.fromRGBO(244, 27, 91, 1)),
+                                        color: const Color.fromRGBO(244, 27, 91, 1)),
                                     borderRadius: BorderRadius.circular(
                                         authProvider.buttonStatus !=
                                                 ButtonStatus.disponible

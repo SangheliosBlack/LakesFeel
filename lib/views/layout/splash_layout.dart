@@ -1,4 +1,3 @@
-
 import 'package:cashless/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +9,7 @@ class SplashLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
@@ -18,21 +18,31 @@ class SplashLayout extends StatelessWidget {
             builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
               return Container(
                   width: width,
+                  height: height,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage('assets/images/fondo.jpg'),
                         fit: BoxFit.cover),
                   ),
-                  child: Column(
+                  child: Stack(
                     children: [
-                      const Expanded(
-                          child: Image(
-                              image: AssetImage('assets/images/logo.png'))),
-                      Container(
-                        margin: const EdgeInsets.only(bottom: 35),
-                        child: const CircularProgressIndicator(
-                          backgroundColor: Color.fromRGBO(108, 2, 93, 1),
-                          color: Colors.white,
+                      Positioned.fill(
+                          child: Container(
+                        padding: const EdgeInsets.all(60),
+                        child:
+                            const Image(image: AssetImage('assets/images/copia.png')),
+                      )),
+                      Positioned.fill(
+                        child: Center(
+                          child: SizedBox(
+                            width: width - 80,
+                            height: width - 80,
+                            child: const CircularProgressIndicator(
+                              strokeWidth: 10,
+                              backgroundColor: Color.fromRGBO(108, 2, 93, 1),
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ],

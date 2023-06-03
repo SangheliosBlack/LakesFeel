@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cashless/models/cesta.dart';
+import 'package:cashless/models/direccion.dart';
 import 'package:cashless/models/recarga.dart';
 import 'package:cashless/models/tienda.dart';
 
@@ -32,6 +33,7 @@ class Usuario {
       required this.transito,
       required this.recargas,
       required this.hibrido,
+      required this.pulsera,
       required this.cesta});
   bool online;
   List<dynamic> direcciones;
@@ -58,12 +60,14 @@ class Usuario {
   bool onlineRepartidor;
   List<Recarga> recargas;
   bool hibrido;
+  String pulsera;
 
   factory Usuario.fromJson(Map<String, dynamic> json) {
     return Usuario(
+        pulsera: json['pulsera'] ?? '',
         onlineRepartidor: json['online_repartidor'],
         online: json["online"],
-        dialCode: json["dialCode"],
+        dialCode: json["dialCode"], 
         direcciones: List<dynamic>.from(json["direcciones"].map((x) => x)),
         correo: json["correo"],
         transito: json["transito"],
@@ -78,7 +82,7 @@ class Usuario {
         profilePhotoKey: json["profilePhotoKey"] ?? "",
         numeroCelular: json['numero_celular'],
         customerID: json['customer_id'],
-        cesta: Cesta.fromJson(json['cesta']),
+        cesta: Cesta(productos: [], total: 0, tarjeta: '', direccion: Direccion(coordenadas: Coordenadas(id: '', latitud: 0, longitud: 0, lat: 0, lng: 0), id: '', predeterminado: false, titulo: '') , efectivo: false, apartado: false, codigo: ''),
         codigo: json['codigo'] ?? '',
         nombreCodigo: json['nombreCodigo'] ?? "",
         idCodigo: json['idCodigo'] ?? "",
@@ -86,7 +90,8 @@ class Usuario {
         recargas: json['recargas'] != null
             ? List<Recarga>.from(
                 json["recargas"].map((x) => Recarga.fromJson(x)))
-            : [], hibrido: false);
+            : [],
+        hibrido: json["hibrido"] ?? false);
   }
 }
 

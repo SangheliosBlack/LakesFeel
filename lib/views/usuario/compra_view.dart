@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cashless/models/producto.dart';
 import 'package:cashless/models/venta_response.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
 
 class PedidoView extends StatelessWidget {
   final Venta venta;
@@ -12,9 +10,7 @@ class PedidoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String formattedDate = DateFormat.yMMMMEEEEd('es-MX')
-        .add_jm()
-        .format(venta.createdAt.toLocal());
+    
     return Scaffold(
       backgroundColor: const Color.fromRGBO(108, 2, 93, 1),
       appBar: AppBar(
@@ -69,7 +65,7 @@ class PedidoView extends StatelessWidget {
                               '\$ ${venta.total.toStringAsFixed(2)}',
                               style: GoogleFonts.quicksand(
                                 fontSize: 30,
-                                color: Color.fromRGBO(250, 180, 4, 1),
+                                color: const Color.fromRGBO(250, 180, 4, 1),
                               ),
                             )
                           ],
@@ -95,7 +91,6 @@ class EstadoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
     TextEditingController controller = TextEditingController();
     controller.text = pedido.codigoCliente;
     return Column(
@@ -162,7 +157,7 @@ class EstadoWidget extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               border:
-                  Border.all(width: 1, color: Color.fromRGBO(244, 27, 91, 1))),
+                  Border.all(width: 1, color: const Color.fromRGBO(244, 27, 91, 1))),
           child: ListView.separated(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),

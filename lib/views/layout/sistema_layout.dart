@@ -65,15 +65,13 @@ class SistemaEstadoLayout extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(1000),
-                      child: SizedBox(
-                        width: width,
-                        height: width,
-                        child:
-                            const Image(image: AssetImage('assets/images/logo.png')),
-                      ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(1000),
+                    child: SizedBox(
+                      width: width,
+                      height: width,
+                      child:
+                          const Image(image: AssetImage('assets/images/logo.png')),
                     ),
                   ),
                   Padding(

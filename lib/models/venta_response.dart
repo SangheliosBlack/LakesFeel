@@ -885,7 +885,7 @@ class PedidoProducto {
                   tarjeta: '',
                   direccion: Direccion(
                       id: '',
-                      coordenadas: Coordenadas(lat: 6454564, lng: 65465),
+                      coordenadas: Coordenadas(lat: 6454564, lng: 65465, latitud: 0, longitud: 0),
                       predeterminado: false,
                       titulo: ''),
                   efectivo: false,
@@ -893,7 +893,7 @@ class PedidoProducto {
                   apartado: false),
               onlineRepartidor: false,
               hibrido: false,
-              recargas: []),
+              recargas: [], pulsera: ''),
       imagen: json["imagen"],
       confirmado: json["confirmado"],
       efectivo: json['efectivo'],

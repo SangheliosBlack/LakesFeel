@@ -3,6 +3,7 @@ import 'package:cashless/views/auth/login_celular.dart';
 import 'package:cashless/views/usuario/dashboard_usuario.dart';
 import 'package:cashless/views/recargas/dashboard_recargas.dart';
 import 'package:cashless/views/venta/dashboard_venta.dart';
+
 import 'package:fluro/fluro.dart';
 import 'package:provider/provider.dart';
 
@@ -10,10 +11,17 @@ class UsuarioHanlder {
   static Handler login = Handler(handlerFunc: ((context, parameters) {
     final authService = Provider.of<AuthService>(context!);
 
+
     if (authService.authStatus == AuthStatus.notAuthenticated) {
       return const AutentificarCelular();
     } else {
-      return const DashboardUsuarioView();
+       if (authService.usuario.hibrido) {
+        return const DashboardVentaView();
+      } else if (authService.usuario.repartidor) {
+        return const DashBoardRecargasView();
+      } else {
+        return const DashboardUsuarioView();
+      }
     }
   }));
 

@@ -60,7 +60,10 @@ dependencies:
   simple_barcode_scanner: ^0.0.8
   url_launcher: ^6.1.10
   cached_network_image: ^3.2.3
-  
+  percent_indicator: ^4.2.3
+  equatable: ^2.0.5
+  universal_html: ^2.2.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

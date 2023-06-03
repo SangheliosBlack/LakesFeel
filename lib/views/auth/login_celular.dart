@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cashless/services/auth_service.dart';
 import 'package:cashless/services/dial_service.dart';
 import 'package:cashless/services/twilio.dart';

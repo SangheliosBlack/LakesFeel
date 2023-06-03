@@ -40,7 +40,7 @@ class Coordenadas {
   Coordenadas({
     this.id,
     required this.lat,
-    required this.lng,
+    required this.lng, required int latitud, required int longitud,
   });
 
   String? id;
@@ -50,7 +50,7 @@ class Coordenadas {
   factory Coordenadas.fromJson(Map<String, dynamic> json) => Coordenadas(
         id: json["_id"] ?? '',
         lat: json["lat"] ??  json['latitud'],
-        lng: json["lng"] ??  json['longitud'],
+        lng: json["lng"] ??  json['longitud'], latitud: 0, longitud: 0,
       );
 
   Map<String, dynamic> toJson() => {

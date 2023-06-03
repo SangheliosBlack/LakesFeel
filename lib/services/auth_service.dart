@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:cashless/global/enviroment.dart';
+import 'package:cashless/models/admin.dart';
 import 'package:cashless/models/auth.dart';
 import 'package:cashless/models/calcular_acumulado.dart';
 import 'package:cashless/models/cesta.dart';
@@ -12,6 +13,7 @@ import 'package:cashless/models/estado_sistema.dart';
 import 'package:cashless/models/lista_opciones.dart';
 import 'package:cashless/models/producto.dart';
 import 'package:cashless/models/usuario.dart';
+import 'package:cashless/models/usuario_cantidad.dart';
 import 'package:cashless/models/venta_response.dart';
 import 'package:cashless/services/local_storage.dart';
 import 'package:flutter/foundation.dart';
@@ -22,6 +24,12 @@ enum AuthStatus { checking, authenticated, notAuthenticated }
 enum TipoUsuario { cliente, vendedor, recarga, admin }
 
 enum ButtonStatus { autenticando, disponible, pressed }
+
+enum BotonesEnvios { send, sleep }
+
+//
+
+//
 
 enum HideMoney { open, close }
 
@@ -42,17 +50,31 @@ class AuthService with ChangeNotifier {
   TipoUsuario tipoUsuario = TipoUsuario.cliente;
   EstadoSistema estadoSistemaStatus = EstadoSistema.isOpen;
 
+  BotonesEnvios botonesEnvio = BotonesEnvios.sleep;
+
   List<ListadoOpcionesTemp> listadoTemp = [];
 
   late Usuario usuario;
 
   int acumulado = 0;
 
+  String tiendaActiva = '';
+
   List<double> listaSpark = [0];
 
   DateTime lastUpdate = DateTime.now();
 
   List<Venta> listadoAcumulado = [];
+
+  int seleccion = 200;
+
+  late AdminsSource admin;
+
+  modificarCantidadRecarga({required int cantidad}) {
+    seleccion = cantidad;
+    botonesEnvio = BotonesEnvios.sleep;
+    notifyListeners();
+  }
 
   ocultarDineroEstado() {
     if (hideMoney == HideMoney.close) {
@@ -77,7 +99,7 @@ class AuthService with ChangeNotifier {
         final loginResponse = loginResponseFromJson(resp.body);
 
         usuario = loginResponse.usuario;
-
+        admin = AdminsSource(ventas: 0, recargas: 0, pulseras: 0, usuarios: 0);
         acumulado = 0;
         listadoAcumulado = [];
         await _guardarToken(loginResponse.token);
@@ -135,9 +157,8 @@ class AuthService with ChangeNotifier {
     }
   }
 
-  Future<Usuario?> obtenerUsuarioQr({required String id}) async {
+  Future<UsuarioCantidad?> obtenerUsuarioQr({required String id}) async {
     final data = {"_id": id};
-    await Future.delayed(const Duration(seconds: 1));
 
     try {
       final resp = await http.post(
@@ -145,22 +166,26 @@ class AuthService with ChangeNotifier {
           body: jsonEncode(data),
           headers: {'Content-Type': 'application/json'});
 
-      print(resp.body);
-
       if (resp.statusCode == 200) {
-        final usuarioResponse = usuarioFromJson(resp.body);
+
+        final usuarioResponse = usuarioCantidadFromJson(resp.body);
+        if (usuarioResponse.usuario.pulsera.isEmpty) {
+          if (usuarioResponse.usuario.recargas.isEmpty) {
+            seleccion = 500;
+            notifyListeners();
+          }
+        }
         return usuarioResponse;
       } else {
         return null;
       }
     } catch (e) {
-      print(e);
       return null;
     }
   }
 
   Future<List<Venta>> obtenerGastos() async {
-    final data = {};
+    final data = {'usuario': usuario.uid};
     await Future.delayed(const Duration(seconds: 2));
 
     try {
@@ -187,18 +212,61 @@ class AuthService with ChangeNotifier {
         return [];
       }
     } catch (e) {
-      print(e);
       return [];
     }
   }
 
-  Future<bool> agregarAbonoCliente(
-      {required String id, required num cantidad}) async {
+  Future adminData() async {
+    final data = {'usuario': usuario.uid};
+    await Future.delayed(const Duration(seconds: 2));
+    final resp = await http.post(Uri.parse('${Statics.apiUrl}/lakesFeel/admin'),
+        body: jsonEncode(data), headers: {'Content-Type': 'application/json'});
+
+    admin = AdminsSource(ventas: 0, recargas: 0, pulseras: 0, usuarios: 0);
+
+    final response = adminsSourceFromJson(resp.body);
+
+    if (resp.statusCode == 200) {
+      admin = response;
+
+      notifyListeners();
+    }
+  }
+
+  Future<bool> sincronizarPulsera({required String numero}) async {
     try {
       final data = {
-        'id': id,
-        'cantidad': cantidad,
-        'usuario': '6352dde2642e410016f994fc'
+        'usuario': usuario.uid,
+        'numero': numero,
+      };
+
+      final resp = await http.post(
+          Uri.parse('${Statics.apiUrl}/lakesFeel/sincronizarPulsera'),
+          body: jsonEncode(data),
+          headers: {'Content-Type': 'application/json'});
+
+      if (resp.statusCode == 200) {
+        usuario.pulsera = "dafasfafasfafasf";
+        notifyListeners();
+
+        return true;
+      } else {
+        return false;
+      }
+    } catch (e) {
+      return false;
+    }
+  }
+
+  Future<bool> agregarAbonoCliente({required String id}) async {
+    botonesEnvio = BotonesEnvios.send;
+    notifyListeners();
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    try {
+      final data = {
+        'usuario': id,
+        'cantidad': seleccion,
       };
 
       final resp = await http.post(
@@ -206,8 +274,7 @@ class AuthService with ChangeNotifier {
           body: jsonEncode(data),
           headers: {'Content-Type': 'application/json'});
 
-      print(resp.body);
-      print(resp.statusCode);
+      modificarCantidadRecarga(cantidad: 200);
 
       if (resp.statusCode == 200) {
         return true;
@@ -215,7 +282,8 @@ class AuthService with ChangeNotifier {
         return false;
       }
     } catch (e) {
-      print(e);
+      botonesEnvio = BotonesEnvios.sleep;
+      notifyListeners();
       return false;
     }
   }
@@ -277,7 +345,7 @@ class AuthService with ChangeNotifier {
         headers: {
           'Content-Type': 'application/json',
           'x-token': await AuthService.getToken(),
-          'x-version': '1.0.6 beta'
+          'x-version': '1.0.8 beta'
         });
 
     final estado = estadoSistemaFromJson(resp.body);
@@ -326,6 +394,7 @@ class AuthService with ChangeNotifier {
     var enCesta = productoAgregado(id: producto.id, opciones: opciones);
 
     if (enCesta!.isNotEmpty) {
+      tiendaActiva = tiendaActiva;
       calcularTotal();
       vaciarElementosTemp();
       notifyListeners();
@@ -354,6 +423,7 @@ class AuthService with ChangeNotifier {
       newProducto.cantidad = cantidad;
       usuario.cesta.productos.insert(0, newProducto);
 
+      tiendaActiva = producto.tienda;
       calcularTotal();
       vaciarElementosTemp();
       return true;
@@ -444,12 +514,16 @@ class AuthService with ChangeNotifier {
 
   Future<bool> eliminarProductoCesta({required int pos}) async {
     usuario.cesta.productos.removeAt(pos);
+    if (usuario.cesta.productos.isEmpty) {
+      tiendaActiva = "";
+    }
     notifyListeners();
     return true;
   }
 
   Future<bool> eliminarCesta() async {
     usuario.cesta.productos = [];
+    tiendaActiva = "";
     notifyListeners();
     return true;
   }
@@ -464,6 +538,9 @@ class AuthService with ChangeNotifier {
       required Direccion direccion,
       String tarjeta = '',
       required String customer}) async {
+    botonesEnvio = BotonesEnvios.send;
+    notifyListeners();
+    await Future.delayed(const Duration(milliseconds: 1000));
     Cesta cestaEnvio = Cesta(
         productos: usuario.cesta.productos,
         total: calcularTotal(),
@@ -504,12 +581,18 @@ class AuthService with ChangeNotifier {
       if (resp.statusCode == 200) {
         usuario.cesta.productos = [];
         usuario.cesta.codigo = '';
+        tiendaActiva = '';
+        botonesEnvio = BotonesEnvios.sleep;
         notifyListeners();
         return respJson;
       } else {
+        botonesEnvio = BotonesEnvios.sleep;
+        notifyListeners();
         return null;
       }
     } catch (e) {
+      botonesEnvio = BotonesEnvios.sleep;
+      notifyListeners();
       return null;
     }
   }

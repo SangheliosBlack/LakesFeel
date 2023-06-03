@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:cashless/models/producto.dart';
 import 'package:cashless/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +47,9 @@ class ProductoWidget extends StatelessWidget {
                         children: [
                           Text(
                             producto.nombre,
+                            textAlign: TextAlign.center,
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.quicksand(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600),
@@ -54,6 +59,7 @@ class ProductoWidget extends StatelessWidget {
                           ),
                           Text(
                             '\$ ${producto.precio.toStringAsFixed(2)}',
+                            textAlign: TextAlign.center,
                             style: GoogleFonts.quicksand(
                                 fontSize: 25,
                                 color: Colors.white,

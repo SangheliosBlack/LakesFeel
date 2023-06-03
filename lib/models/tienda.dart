@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cashless/models/direccion.dart';
 import 'package:cashless/models/producto.dart';
 import 'package:cashless/models/promocion.dart';
 
@@ -117,29 +118,7 @@ class Tienda {
       };
 }
 
-class Coordenadas {
-  Coordenadas({
-    required this.id,
-    required this.latitud,
-    required this.longitud,
-  });
 
-  String id;
-  double latitud;
-  double longitud;
-
-  factory Coordenadas.fromJson(Map<String, dynamic> json) => Coordenadas(
-        id: json["_id"],
-        latitud: json["latitud"].toDouble(),
-        longitud: json["longitud"].toDouble(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "_id": id,
-        "latitud": latitud,
-        "longitud": longitud,
-      };
-}
 
 class Horario {
   Horario({

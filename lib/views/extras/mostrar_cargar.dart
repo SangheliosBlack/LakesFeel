@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 void mostrarCarga(BuildContext context) {
   if (Platform.isAndroid) {
     showDialog(
-        barrierColor: Color.fromRGBO(244, 27, 91, 1),
+        barrierColor: const Color.fromRGBO(244, 27, 91, 1),
         barrierDismissible: true,
         useSafeArea: true,
         context: context,

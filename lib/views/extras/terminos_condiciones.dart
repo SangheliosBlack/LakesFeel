@@ -52,7 +52,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: 'Lakes Feel ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               '("nosotros", "nuestro" o "nos") se compromete a proteger su privacidad. Esta Política de privacidad explica cómo '),
@@ -60,7 +60,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: 'Lakes Feel',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               ' recopila, usa y divulga su información personal.'),
@@ -81,7 +81,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: 'Lakes Feel. ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               'Al acceder o utilizar nuestro Servicio, usted indica que ha leído, comprendido y aceptado nuestra recopilación, almacenamiento, uso y divulgación de su información personal como se describe en esta Política de privacidad y en nuestros Términos de servicio.'),
@@ -150,7 +150,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: 'Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       ' , Calle Andador 439, Paseos de La Montaña, Lagos de Moreno, Jalisco que es responsable de su información en virtud de esta Política de privacidad.'),
@@ -181,7 +181,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: 'Lakes Feel.',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                             ],
                           ),
                         ),
@@ -207,7 +207,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       ' o los propietarios / fundadores de Lakes Feel, en este caso es Mexico'),
@@ -238,7 +238,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       'para gestionar las relaciones con sus consumidores o usuarios del servicio.'),
@@ -269,7 +269,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(text: 'y usar los servicios.'),
                             ],
                           ),
@@ -321,7 +321,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       'o están bajo contrato para realizar un servicio en nombre de una de las partes.'),
@@ -375,7 +375,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       'como se describe en los términos relativos (si están disponibles) y en esta plataforma.'),
@@ -427,7 +427,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       ', al que se puede acceder a través de esta URL: '),
@@ -458,7 +458,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text: 'para utilizar los Servicios.'),
                             ],
@@ -677,7 +677,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: 'Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       'recopilará los datos del usuario final necesarios para proporcionar los servicios de'),
@@ -685,7 +685,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       ' a nuestros clientes. Los usuarios finales pueden proporcionarnos voluntariamente la información que han puesto a disposición en los sitios web de las redes sociales. Si nos proporciona dicha información, podemos recopilar información disponible públicamente de los sitios web de redes sociales que ha indicado. Puede controlar la cantidad de información que los sitios web de redes sociales hacen pública visitando estos sitios web y cambiando su configuración de privacidad.'),
@@ -723,7 +723,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       ', recibimos información de un tercero que brinda servicios automáticos de detección de fraude a '),
@@ -731,7 +731,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: ' Lakes Feel. ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       'Ocasionalmente, también recopilamos información que se pone a disposición del público en los sitios web de redes sociales. Puede controlar la cantidad de información que los sitios web de redes sociales hacen pública visitando estos sitios web y cambiando su configuración de privacidad.'),
@@ -824,7 +824,7 @@ class TerminosCondicionesView extends StatelessWidget {
                                   text: 'Lakes Feel ',
                                   style: GoogleFonts.quicksand(
                                       fontWeight: FontWeight.bold,
-                                      color: Color.fromRGBO(250, 180, 4, 1))),
+                                      color: const Color.fromRGBO(250, 180, 4, 1))),
                               const TextSpan(
                                   text:
                                       ' recopilará la información personal que nos envíe. También podemos recibir información personal sobre usted de terceros como se describe anteriormente.'),
@@ -1029,7 +1029,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               'y cumplir con los propósitos descritos en esta política. Este también es el caso de cualquier persona con la que compartamos su información y que lleve a cabo servicios en nuestro nombre. Cuando ya no necesitemos usar su información y no sea necesario que la conservemos para cumplir con nuestras obligaciones legales o reglamentarias, la eliminaremos de nuestros sistemas o la despersonalizaremos para que no podamos identificarlo.'),
@@ -1072,7 +1072,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               ' está incorporada en Mexico. La información recopilada a través de nuestro sitio web, a través de interacciones directas con usted o del uso de nuestros servicios de ayuda puede transferirse de vez en cuando a nuestras oficinas o personal, o a terceros, ubicados en todo el mundo, y puede verse y alojarse en cualquier lugar de el mundo, incluidos los países que pueden no tener leyes de aplicación general que regulen el uso y la transferencia de dichos datos. En la mayor medida permitida por la ley aplicable, al utilizar cualquiera de los anteriores, usted acepta voluntariamente la transferencia transfronteriza y el alojamiento de dicha información.'),
@@ -1118,13 +1118,13 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(text: ' dependen de tu relación con '),
                       TextSpan(
                           text: ' Lakes Feel.',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               ' El personal puede actualizar o corregir su información según se detalla en nuestras políticas de empleo internas de la empresa.'),
@@ -1200,7 +1200,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel, ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               ', recopilamos la información que nos proporciona voluntariamente. Usamos la información recopilada con fines de recursos humanos para administrar los beneficios a los trabajadores y seleccionar a los solicitantes.'),
@@ -1247,7 +1247,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel  ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               'o cualquiera de sus afiliadas corporativas (como se define en este documento), o la porción de Lakes Feel o cualquiera de sus Afiliadas corporativas con las que se relaciona el Servicio, o en el caso de que discontinuemos nuestro negocio o presentemos una petición o hayamos presentado una petición contra nosotros en caso de quiebra, reorganización o procedimiento similar, siempre que el el tercero acepte adherirse a los términos de esta Política de privacidad.'),
@@ -1279,7 +1279,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel  ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               ', ya sea por propiedad o de otra manera. Cualquier información relacionada con usted que proporcionemos a nuestros afiliados corporativos será tratada por dichos afiliados corporativos de acuerdo con los términos de esta política de privacidad.'),
@@ -1335,7 +1335,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               ' o comunicarse con nosotros directamente, significa que acepta esta Política de privacidad. Si no está de acuerdo con esta Política de privacidad, no debe interactuar con nuestro sitio web ni utilizar nuestros servicios. El uso continuo del sitio web, la interacción directa con nosotros o después de la publicación de cambios en esta Política de privacidad que no afecten significativamente el uso o divulgación de su información personal significará que acepta esos cambios.'),
@@ -1412,7 +1412,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: 'Lakes Feel ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               'utiliza "cookies" para identificar las áreas de nuestro sitio web que ha visitado. Una cookie es una pequeña porción de datos que su navegador web almacena en su computadora o dispositivo móvil. Usamos cookies para mejorar el rendimiento y la funcionalidad de nuestra plataforma, pero no son esenciales para su uso. Sin embargo, sin estas cookies, es posible que ciertas funciones, como los videos, no estén disponibles o se le solicitará que ingrese sus datos de inicio de sesión cada vez que visite la plataforma, ya que no podríamos recordar que había iniciado sesión anteriormente. La mayoría de los navegadores web se pueden configurar para desactivar el uso de cookies. Sin embargo, si desactiva las cookies, es posible que no pueda acceder a la funcionalidad de nuestro sitio web correctamente o en absoluto. Nunca colocamos información de identificación personal en cookies.'),
@@ -1543,7 +1543,7 @@ class TerminosCondicionesView extends StatelessWidget {
                           text: ' Lakes Feel ',
                           style: GoogleFonts.quicksand(
                               fontWeight: FontWeight.bold,
-                              color: Color.fromRGBO(250, 180, 4, 1))),
+                              color: const Color.fromRGBO(250, 180, 4, 1))),
                       const TextSpan(
                           text:
                               'no será responsable de ningún Servicio de terceros, incluida su precisión, integridad, puntualidad, validez, cumplimiento de los derechos de autor, legalidad, decencia, calidad o cualquier otro aspecto de los mismos. Lakes Feel no asume ni tendrá ninguna obligación o responsabilidad ante usted o cualquier otra persona o entidad por los Servicios de terceros.'),

@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
 
@@ -22,7 +24,7 @@ class _MyApp2State extends State<MyApp2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Plugin example app'),
+        title: const Text('Plugin example app'),
       ),
       body: Center(
         child: Column(
@@ -32,11 +34,11 @@ class _MyApp2State extends State<MyApp2> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Back"),
+                const Text("Back"),
                 Switch(
                     value: dirState,
                     onChanged: (val) => setState(() => dirState = val)),
-                Text("Front"),
+                const Text("Front"),
               ],
             ),
             Expanded(
@@ -48,11 +50,10 @@ class _MyApp2State extends State<MyApp2> {
                           child: QrCamera(
                             onError: (context, error) => Text(
                               error.toString(),
-                              style: TextStyle(color: Colors.red),
+                              style: const TextStyle(color: Colors.red),
                             ),
-                            formats: [BarcodeFormats.QR_CODE],
+                            formats: const [BarcodeFormats.QR_CODE],
                             qrCodeCallback: (code) {
-                              print('dasdasdasdasdasdasasdadadasdasdasdasdada');
                               setState(() {
                                 qr = code!;
                               });
@@ -70,13 +71,13 @@ class _MyApp2State extends State<MyApp2> {
                           ),
                         ),
                       )
-                    : Center(child: Text("Camera inactive"))),
+                    : const Center(child: Text("Camera inactive"))),
             Text("QRCODE: $qr"),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-          child: Text(
+          child: const Text(
             "on/off",
             textAlign: TextAlign.center,
           ),
